@@ -17,7 +17,7 @@ namespace GameCtor.RxNavigation
     {
         private readonly IScheduler _backgroundScheduler;
         private readonly IScheduler _mainScheduler;
-        private readonly IViewLocator _viewLocator;
+        private readonly ReactiveUI.IViewLocator _viewLocator;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewShell"/> class.
@@ -25,7 +25,7 @@ namespace GameCtor.RxNavigation
         /// <param name="backgroundScheduler">A background scheduler.</param>
         /// <param name="mainScheduler">A main scheduler.</param>
         /// <param name="viewLocator">A view locator.</param>
-        public ViewShell(IScheduler backgroundScheduler, IScheduler mainScheduler, IViewLocator viewLocator)
+        public ViewShell(IScheduler backgroundScheduler, IScheduler mainScheduler, ReactiveUI.IViewLocator viewLocator)
         {
             _backgroundScheduler = backgroundScheduler ?? RxApp.TaskpoolScheduler;
             _mainScheduler = mainScheduler ?? RxApp.MainThreadScheduler;

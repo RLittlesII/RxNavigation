@@ -20,7 +20,7 @@ namespace GameCtor.RxNavigation
     {
         private readonly IScheduler _backgroundScheduler;
         private readonly IScheduler _mainScheduler;
-        private readonly IViewLocator _viewLocator;
+        private readonly ReactiveUI.IViewLocator _viewLocator;
         private readonly IObservable<IPageViewModel> _pagePopped;
         private readonly Subject<Unit> _modalPopped;
         private readonly Subject<RxNavigationController> _navigationPagePushed;
@@ -34,7 +34,7 @@ namespace GameCtor.RxNavigation
         /// <param name="backgroundScheduler">A background scheduler.</param>
         /// <param name="mainScheduler">A main scheduler.</param>
         /// <param name="viewLocator">A view locator.</param>
-        public ViewShell(IScheduler backgroundScheduler, IScheduler mainScheduler, IViewLocator viewLocator)
+        public ViewShell(IScheduler backgroundScheduler, IScheduler mainScheduler, ReactiveUI.IViewLocator viewLocator)
         {
             _backgroundScheduler = backgroundScheduler ?? RxApp.TaskpoolScheduler;
             _mainScheduler = mainScheduler ?? RxApp.MainThreadScheduler;

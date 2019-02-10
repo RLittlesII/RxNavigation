@@ -21,7 +21,7 @@ namespace GameCtor.RxNavigation
 
         private readonly IScheduler _backgroundScheduler;
         private readonly IScheduler _mainScheduler;
-        private readonly IViewLocator _viewLocator;
+        private readonly ReactiveUI.IViewLocator _viewLocator;
         private readonly IObservable<IPageViewModel> _pagePopped;
         private readonly IObservable<Activity> _whenPageCreated;
         private readonly HashSet<Activity> _userInstigatedPops;
@@ -32,7 +32,7 @@ namespace GameCtor.RxNavigation
         /// <param name="backgroundScheduler">A background scheduler.</param>
         /// <param name="mainScheduler">A main scheduler.</param>
         /// <param name="viewLocator">A view locator.</param>
-        public MainActivityView(IScheduler backgroundScheduler, IScheduler mainScheduler, IViewLocator viewLocator)
+        public MainActivityView(IScheduler backgroundScheduler, IScheduler mainScheduler, ReactiveUI.IViewLocator viewLocator)
         {
             _backgroundScheduler = backgroundScheduler ?? RxApp.TaskpoolScheduler;
             _mainScheduler = mainScheduler ?? RxApp.MainThreadScheduler;

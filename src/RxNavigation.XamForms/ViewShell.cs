@@ -4,7 +4,6 @@ using System.Reactive;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
-using ReactiveUI;
 using Xamarin.Forms;
 
 namespace GameCtor.RxNavigation.XamForms
@@ -16,7 +15,7 @@ namespace GameCtor.RxNavigation.XamForms
     {
         private readonly IScheduler _backgroundScheduler;
         private readonly IScheduler _mainScheduler;
-        private readonly IViewLocator _viewLocator;
+        private readonly ReactiveUI.IViewLocator _viewLocator;
         private readonly IObservable<IPageViewModel> _pagePopped;
         private readonly IObservable<Unit> _modalPopped;
         private readonly IObservable<Page> _modalPushed;
@@ -26,22 +25,14 @@ namespace GameCtor.RxNavigation.XamForms
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewShell"/> class.
         /// </summary>
-        public ViewShell()
-            : this(RxApp.TaskpoolScheduler, RxApp.MainThreadScheduler, ViewLocator.Current)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewShell"/> class.
-        /// </summary>
         /// <param name="backgroundScheduler">A background scheduler.</param>
         /// <param name="mainScheduler">A main scheduler.</param>
         /// <param name="viewLocator">A view locator.</param>
-        public ViewShell(IScheduler backgroundScheduler, IScheduler mainScheduler, IViewLocator viewLocator)
+        public ViewShell(IScheduler backgroundScheduler, IScheduler mainScheduler, ReactiveUI.IViewLocator viewLocator)
         {
-            _backgroundScheduler = backgroundScheduler ?? RxApp.TaskpoolScheduler;
-            _mainScheduler = mainScheduler ?? RxApp.MainThreadScheduler;
-            _viewLocator = viewLocator ?? ViewLocator.Current;
+            _backgroundScheduler = backgroundScheduler;
+            _mainScheduler = mainScheduler;
+            _viewLocator = viewLocator;
 
             _navigationPages = new Stack<NavigationPage>();
 
